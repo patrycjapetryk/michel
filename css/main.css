@@ -1,9 +1,51 @@
+@font-face {
+  font-family: 'Trade Gothic LT Std';
+  src: url('font/TradeGothicLTStd-Extended.woff2') format('woff2'),
+    url('font/TradeGothicLTStd-Extended.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:after,
 *:before {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
+
+body {
+  background-color: #F7F3F0;
+  color: #000;
+  font-family: 'Trade Gothic LT Std', sans-serif;
+  line-height: 1.4em;
+  overflow: hidden;
+  text-align: center;
+}
+
+.gallery {}
+
+.gallery__image {}
+
+.gallery__description {}
+
+
+.header {}
+
+.header__title {}
+
+
+.intro {}
+
+.intro__link {}
+
+
+.contact {}
+
+.contact__header {}
+
+.contact__title {}
+
+.contact__link {}
