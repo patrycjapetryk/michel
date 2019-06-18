@@ -82,7 +82,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   transition: .6s linear;
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 .intro canvas {
@@ -100,4 +100,41 @@ body {
 .contact__link {}
 
 
-.main__link-description {}
+.main__link-description {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 21px;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity .1s linear;
+}
+
+/* .main__link-description--active {
+  opacity: 1;
+  transition: opacity .3s linear .2s;
+} */
+
+/*active*/
+
+.active {
+  opacity: 1;
+}
+
+.background.active {
+  transition: .2s linear;
+  cursor: none;
+}
+
+.header.active {
+  opacity: 0;
+  cursor: none;
+}
+
+.contact.active {
+  transition: .7s linear .4s;
+}
+
+.main__link-description.active {
+  transition: opacity .3s linear .2s;
+}
