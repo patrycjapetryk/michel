@@ -1,5 +1,6 @@
 const imgInContainer = document.querySelectorAll(".gallery__image");
 const howManyPhotos = imgInContainer.length;
+const header = document.querySelector(".header");
 const headerTitle = document.querySelector(".header__title");
 const headerTitleText = headerTitle.innerText;
 const galleryDescription = document.querySelector(".gallery__description"); // description
@@ -85,10 +86,10 @@ const contactDisplay = (event) => {
         contact = true;
     } else {
         // ukryj contact
-        headerTitle.innerText = h1Text;
+        headerTitle.innerText = headerTitleText;
         items.forEach((item) => item.classList.remove('active'));
 
-        setTimeout(() => h3.style.display = 'none', 400);
+        setTimeout(() => contactContainer.style.display = 'none', 400);
         contact = false;
     }
 }
@@ -119,12 +120,12 @@ const init = () => {
 
     headerTitle.addEventListener('mouseover', () => titleHover("Contact"));
     headerTitle.addEventListener('mouseout', () => titleHover(headerTitleText));
-    // headerTitle.addEventListener('click', contactDisplay);
-    // bg.addEventListener('click', contactDisplay);
+    headerTitle.addEventListener('click', contactDisplay);
+    bg.addEventListener('click', contactDisplay);
 }
 
 if (!queryWidth.matches) {
-    // intro na desktopie
+    // intro tylko na desktopie
     playground.style.opacity = 1;
     document.body.style.cursor = 'none';
 

@@ -25,97 +25,119 @@ body {
   text-align: center;
 }
 
+
 .gallery {
+  height: 100%;
   position: absolute;
   width: 100%;
-  height: 100%;
 }
 
 .gallery__image {
-  position: absolute;
+  height: auto;
   left: 50%;
-  /* top: 10%; */
-  top: 16%;
-  transform: translate(-50%, 0);
   min-height: 68%;
   max-height: 68%;
   max-width: 100%;
-  width: auto;
-  height: auto;
   object-fit: contain;
   opacity: 0;
+  position: absolute;
+  top: 16%;
+  transform: translate(-50%, 0);
+  width: auto;
 }
 
 .gallery__description {
+  font-size: 10px;
   position: absolute;
   right: .5%;
   top: 50%;
   transform: rotate(90deg) translate(50%, 0);
   transform-origin: 100% 0;
-  font-size: 10px;
 }
 
 
 .header {
-  position: absolute;
   left: 0;
+  position: absolute;
   top: 5%;
+  transition: .3s linear;
   width: 100%;
   z-index: 2;
-  transition: .3s linear;
 }
 
 .header__title {
-  width: 350px;
-  font-size: 19px;
-  font-weight: normal;
   cursor: pointer;
   display: inline-block;
+  font-size: 19px;
+  font-weight: normal;
+  width: 350px;
 }
 
 
 .intro {
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: .6s linear;
   width: 96%;
-  /* height:100%; */
+}
+
+.intro canvas {
+  height: 100%;
+  width: 100%;
+}
+
+
+.background {
+  background-color: #F7F3F0;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  transition: .4s linear .4s;
+  width: 100%;
+  z-index: 1;
+}
+
+.contact {
+  display: none;
+  font-size: 18px;
+  line-height: 2em;
+  opacity: 0;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: .6s linear;
-  opacity: 0;
+  transition: .3s linear;
+  z-index: 2;
 }
 
-.intro canvas {
-  width: 100%;
-  height: 100%;
+.contact__title {
+  display: block;
+  font-size: 21px;
+  font-weight: normal;
+  margin: 0 auto 30px;
 }
 
-
-.contact {}
-
-.contact__header {}
-
-.contact__title {}
-
-.contact__link {}
+.contact__link {
+  color: black;
+  font-weight: normal;
+  text-decoration: none;
+}
 
 
 .main__link-description {
-  position: absolute;
-  left: 0;
-  top: 0;
   font-size: 21px;
+  left: 0;
   opacity: 0;
-  z-index: 2;
+  position: absolute;
+  top: 0;
   transition: opacity .1s linear;
+  z-index: 2;
 }
 
-/* .main__link-description--active {
-  opacity: 1;
-  transition: opacity .3s linear .2s;
-} */
-
-/*active*/
+/* js active */
 
 .active {
   opacity: 1;
@@ -126,7 +148,7 @@ body {
   cursor: none;
 }
 
-.header.active {
+.header__title.active {
   opacity: 0;
   cursor: none;
 }
