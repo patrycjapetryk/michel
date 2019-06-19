@@ -86,11 +86,11 @@ const contactDisplay = (event) => {
         contact = true;
     } else {
         // ukryj contact
-        headerTitle.innerText = headerTitleText;
         items.forEach((item) => item.classList.remove('active'));
 
         setTimeout(() => contactArticle.style.display = 'none', 400);
         contact = false;
+        titleHover(headerTitleText);
     }
 }
 

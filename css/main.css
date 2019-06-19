@@ -70,6 +70,7 @@ body {
   display: inline-block;
   font-size: 19px;
   font-weight: normal;
+  margin: 0;
   width: 350px;
 }
 
@@ -114,17 +115,17 @@ body {
   z-index: 2;
 }
 
+.contact__link {
+  color: black;
+  font-weight: normal;
+  text-decoration: none;
+}
+
 .contact__title {
   display: block;
   font-size: 21px;
   font-weight: normal;
   margin: 0 auto 30px;
-}
-
-.contact__link {
-  color: black;
-  font-weight: normal;
-  text-decoration: none;
 }
 
 
@@ -160,4 +161,36 @@ body {
 
 .main__link-description.active {
   transition: opacity .3s linear .2s;
+}
+
+@media all and (max-width: 900px) {
+
+  .gallery__description,
+  .main__link-description {
+    display: none;
+  }
+
+  .contact__background.active {
+    cursor: pointer;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .header__title {
+    font-size: 19px;
+  }
+
+  .contact__article {
+    font-size: 17px;
+  }
+
+  .contact__title {
+    font-size: 19px;
+  }
+
+  .gallery__image {
+    top: 11.5%;
+    min-height: 80%;
+    max-height: 80%;
+  }
 }
