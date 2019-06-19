@@ -89,8 +89,9 @@ body {
   width: 100%;
 }
 
+.contact {}
 
-.background {
+.contact__background {
   background-color: #F7F3F0;
   height: 100%;
   opacity: 0;
@@ -100,7 +101,7 @@ body {
   z-index: 1;
 }
 
-.contact {
+.contact__article {
   display: none;
   font-size: 18px;
   line-height: 2em;
@@ -143,18 +144,18 @@ body {
   opacity: 1;
 }
 
-.background.active {
+.contact__background.active {
   transition: .2s linear;
   cursor: none;
+}
+
+.contact__article.active {
+  transition: .7s linear .4s;
 }
 
 .header__title.active {
   opacity: 0;
   cursor: none;
-}
-
-.contact.active {
-  transition: .7s linear .4s;
 }
 
 .main__link-description.active {
