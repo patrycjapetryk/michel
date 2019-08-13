@@ -1,3 +1,3 @@
-# michel
+# Michél Hops - graphic designer portfolio
 
-Michél Hops - graphic designer portfolio
+html/css/js
