@@ -1,5 +1,14 @@
 # Michél Hops - graphic designer portfolio
 
-html, css, js, pixi.js
+This is experimental online portfolio made for great graphic designer Michél Hops 🔥.
 
-online version: http://michelhops.pl/
+## Tools & technologies I've used
+
+- Visual Studio Code
+- JS ES6
+- pixi.js
+  ...
+
+## 
+
+Online version: http://michelhops.pl/
