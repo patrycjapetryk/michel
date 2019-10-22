@@ -11,4 +11,4 @@ This is experimental online portfolio made for great graphic designer Michél Ho
 
 ## 
 
-Online version: http://michelhops.pl/
+Online version: https://patrycjapetryk.github.io/michel/
