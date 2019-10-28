@@ -48,11 +48,4 @@ const animate = () => {
 	renderer.render(stage);
 };
 
-function loadProgressHandler() {
-	console.log("loading");
-}
-
-PIXI.loader
-	.add(["img/michel-hops.png", "img/clouds.jpg"])
-	.on("progress", loadProgressHandler)
-	.load(setScene);
+PIXI.loader.add(["img/michel-hops.png", "img/clouds.jpg"]).load(setScene);
