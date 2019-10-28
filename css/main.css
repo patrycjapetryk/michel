@@ -25,6 +25,21 @@ body {
 	text-align: center;
 }
 
+.loader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 3px;
+}
+.loader__bar {
+	background-color: #000;
+	width: 0;
+	height: 100%;
+	opacity: 0.9;
+	animation: loader-animation 8s infinite;
+}
+
 .gallery {
 	height: 100%;
 	position: absolute;
@@ -125,10 +140,10 @@ body {
 
 .main__link-description {
 	font-size: 21px;
-	left: 0;
+	left: -500px;
+	top: -500px;
 	opacity: 0;
 	position: absolute;
-	top: 0;
 	transition: opacity 0.1s linear;
 	z-index: 2;
 }
@@ -157,9 +172,19 @@ body {
 	transition: opacity 0.3s linear 0.2s;
 }
 
+@keyframes loader-animation {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
 @media all and (max-width: 900px) {
 	.gallery__description,
-	.main__link-description {
+	.main__link-description,
+	.loader {
 		display: none;
 	}
 
