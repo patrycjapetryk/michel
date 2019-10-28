@@ -1,68 +1,58 @@
-// var width = window.offsetWidth;
 const width = 2200;
-// var height = window.offsetHeight;
 const height = 376;
+const effectScale = 1.8; // wielkość efektu
 
-let playground = document.querySelector('.intro');
-let canvas;
-// var ratio = 150 / 830;
-let count1 = 0;
-let raf;
-let effectScale = 1.8; // wielkość efektu
+const playground = document.querySelector(".intro");
 
 const renderer = PIXI.autoDetectRenderer(width, height, {
-    transparent: true
+	transparent: true
 });
 renderer.autoResize = true;
 
-let tp, preview;
-let displacementSprite,
-    displacementFilter,
-    stage;
+let animateCount = 0;
+let preview, displacementSprite, displacementFilter, stage;
 
-const setScene = (url) => {
-    playground.appendChild(renderer.view);
+const setScene = url => {
+	playground.appendChild(renderer.view);
 
-    stage = new PIXI.Container();
+	stage = new PIXI.Container();
 
-    tp = PIXI.Texture.fromImage(url);
-    preview = new PIXI.Sprite(tp);
+	preview = new PIXI.Sprite(
+		PIXI.loader.resources["img/michel-hops.png"].texture
+	);
 
-    preview.anchor.x = 0;
+	displacementSprite = new PIXI.Sprite(
+		PIXI.loader.resources["img/clouds.jpg"].texture
+	);
+	displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
 
-    displacementSprite = PIXI.Sprite.fromImage('img/clouds.jpg');
-    displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+	displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
 
-    displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+	displacementSprite.scale.y = effectScale;
+	displacementSprite.scale.x = effectScale;
 
-    displacementSprite.scale.y = effectScale;
-    displacementSprite.scale.x = effectScale;
+	stage.addChild(displacementSprite);
+	stage.addChild(preview);
 
-    stage.addChild(displacementSprite);
-    stage.addChild(preview);
-
-    animate();
-}
-
-const removeScene = () => {
-    cancelAnimationFrame(raf);
-    stage.removeChildren();
-    stage.destroy(true);
-    playground.removeChild(canvas);
-}
+	animate();
+};
 
 const animate = () => {
-    raf = requestAnimationFrame(animate);
+	requestAnimationFrame(animate);
 
-    displacementSprite.x = count1 * 30;
-    displacementSprite.y = count1 * 30;
+	displacementSprite.x = animateCount * 30;
+	displacementSprite.y = animateCount * 30;
+	animateCount += 0.02;
 
-    count1 += 0.02;
+	stage.filters = [displacementFilter];
+	renderer.render(stage);
+};
 
-    stage.filters = [displacementFilter];
-    renderer.render(stage);
-
-    canvas = playground.querySelector('canvas');
+function loadProgressHandler() {
+	console.log("loading");
 }
 
-setScene('img/michel-hops.png');
+PIXI.loader
+	.add(["img/michel-hops.png", "img/clouds.jpg"])
+	.on("progress", loadProgressHandler)
+	.load(setScene);
